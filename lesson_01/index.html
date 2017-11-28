@@ -1,18 +1,131 @@
 <!DOCTYPE html>
+
 <head>
   <meta charset="utf-8" />
   <title>lesson01</title>
 </head>
+
 <body>
-  <header>
-    <div>
-      <table width="100%" border="1">
-        <tr>
-          <td>
-            <h1>Макет задания по «Основы HTML»</h1>
+  <table width="100%" border="1" cellpadding="5px">
+    <tbody>
+      <tr height="100px">
+        <td align="center" colspan="3">
+          <h3><font color="blue">HEADER IS HERE</font></h3>
+        </td>
+      </tr>
+      <tr>
+        <td width="200px" valign="top">
+          <h3><font color="blue">Menu</font></h3>
+          <ul type ="none" >
+            <li>
+              <a href="/menu1">menu 1</a>
+            </li>
+            <li>
+              <a href="/menu2">menu 2</a>
+            </li>
+            <li>
+              <a href="/menu3">menu 3</a>
+            </li>
+            <li>
+              <a href="/menu4">menu 4</a>
+            </li>
+            <li>
+              <a href="/menu5">menu 5</a>
+            </li>
+          </ul>
+        </td>
+        <td valign="top">
+          <h3 align="center"><font color="blue">Main content</font></h3>
+          <img src="image.jpg" height="100px" width="200px" align="right">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+          laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+          anim id est laborum."
+          <ul type="square">
+            <li>
+              <em>Italic text<sup>2</sup></em>
+            </li>
+            <li>
+              <strong>Bold text</strong>
+            </li>
+          </ul>
+          <h3 align="left"><font color="blue">Table inside</font></h3>
+          <div>
+            <table width="100%" border="1">
+              <tbody>
+                <tr>
+                  <th>
+                    #
+                  </th>
+                  <th>
+                    Name
+                  </th>
+                  <th>
+                    Price
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    1
+                  </td>
+                  <td>
+                    Name 1
+                  </td>
+                  <td>
+                    Price 1
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    2
+                  </td>
+                  <td>
+                    Name 2
+                  </td>
+                  <td>
+                    Price 2
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    3
+                  </td>
+                  <td>
+                    Name 3
+                  </td>
+                  <td>
+                    Price 3
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <td valign="top" width="200px">
+            <form action="/signup" method="POST">
+              <label for="login">Login:</label>
+              <input type="text" id="login" name="login"><br>
+              <label for="pass">Password:</label>
+              <input type="password" id="pass" name="password"><br>
+              <div>
+                <select name="user">
+                <option>User</option>
+                <option>Tester</option>
+                <option>Admin</option>
+              </select>
+              </div>
+              <div>
+                <input type="checkbox" name="checkbox">remember me
+              </div>
+              <div>
+                <button>Sing in</button>
+              </div>
+            </form>
           </td>
-        </tr>
-      </table>
-    </div>
-  </header>
+      </tr>
+
+      <tr>
+        <td colspan="3">
+          footer is here
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </body>
