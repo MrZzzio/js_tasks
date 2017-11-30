@@ -1,16 +1,10 @@
 *{
   margin: 0;
   padding: 0;
-  background-color: #ECEDEF;
 }
 
 html,body {
   height:100%;
-}
-
-.main_body {
-  width: 100%;
-  height: 100%;
 }
 
 .header {
@@ -27,52 +21,109 @@ html,body {
 }
 
 .logo {
-  padding-top: 11px;
+  margin-top: 11px;
   background-color: inherit;
+  margin-right: 127px;
+  vertical-align: top;
 }
 
 .search_input {
   display: inline-block;
-  padding-left: 125px;
   background-color: inherit;
+  margin-top: 7px;
+  vertical-align: top;
 }
 
 .search_input input {
   border-radius: 14px;
   border: 0;
+  width: 202px;
+  height: 28px;
+  background: #224b7a url('img/ic_head_loupe.svg') no-repeat;
+  background-position: 8px 8px;
+  padding-left: 28px;
+  outline: none;
+  transition: background-color 0.05s, color 0.05s
 }
 
-
-.main {
-  height: 700px;
-  width: 550px;
-  background-color: #FFFFFF;
-  margin: auto;
-  position: relative;
-  top: 15px;
-  left: -50px;
-  outline: 1px solid #E2E3E7;
-  box-shadow: 0 0 1px rgba(0,0,0,0.5);
+.search_input input:focus {
+  background: #fff url('img/ic_head_loupe.svg') no-repeat;
+  background-position: 8px 8px;
 }
 
+::-webkit-input-placeholder {
+    color: #8FACC5;
+  }
 
-
-
-.menu {
-  width: 35%;
-  height: 100%;
-  min-width: 150px;
-  background-color: red;
-  float: left;
+:focus::-webkit-input-placeholder {
+  color: transparent
 }
 
+.header-icons {
+  display: inline-block;
+  margin-left: 13px;
+  height: 42px;
+}
+
+.ring-icon-href {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  transition: background-color 0.05s;
+}
+
+.ring-icon {
+  width: 20px;
+  height: 20px;
+  margin: 11px 11px;
+  background: url('img/ic_head_notify.svg') no-repeat;
+}
+
+.ring-icon-href:hover {
+  background-color: #3d6898;
+}
+
+.nota-icon-href {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  transition: background-color 0.05s;
+}
+
+.nota-icon {
+  width: 20px;
+  height: 20px;
+  margin: 11px 11px;
+  background: url('img/ic_head_audio.svg') no-repeat;
+}
+
+.nota-icon-href:hover {
+  background-color: #3d6898;
+}
+
+.my-page-menu {
 
 
-.settings {
-  width: 35%;
-  height: 100%;
-  min-width: 150px;
-  background-color: white;
-  float: right;
+  width: 100%;
+  height: 100px;
+}
 
+.my-page-href {
+
+  width: 500px;
+  height: 100px;
+
+}
+
+.my-page-icon{
+  display: inline-block;
+  width: 200px;
+  height: 16px;
+  background: url('img/menu_icon.png') no-repeat;
+}
+
+.my-page-text {
+  display: inline-block;
+  width: 100px;
+  height: 16px;
 }
