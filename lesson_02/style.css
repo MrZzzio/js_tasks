@@ -5,6 +5,7 @@
 
 html,body {
   height:100%;
+  background-color: #ECEDEF;
 }
 
 .header {
@@ -101,29 +102,168 @@ html,body {
   background-color: #3d6898;
 }
 
-.my-page-menu {
 
 
-  width: 100%;
-  height: 100px;
-}
 
-.my-page-href {
-
-  width: 500px;
-  height: 100px;
-
-}
-
-.my-page-icon{
+.icon {
   display: inline-block;
-  width: 200px;
+  width: 17px;
   height: 16px;
   background: url('img/menu_icon.png') no-repeat;
+  position: relative;
+  top: 5px;
+  opacity: 0.75;
 }
 
-.my-page-text {
+.text {
   display: inline-block;
-  width: 100px;
-  height: 16px;
+  font-size: 13px;
+  margin-left: 7px;
+  letter-spacing: 0.3px;
+}
+
+.left-pref {
+  display: inline-block;
+  width: 5px;
+}
+
+.left-menu {
+  display: inline-block;
+  width: 149px;
+  height: 460px;
+  margin-left: 782px;
+  margin-top: 16px;
+}
+
+.news-icon {
+  background-position: 0px -923px;
+}
+
+.messages-icon {
+  background-position: 0px -27px;
+}
+
+.friends-icon {
+  background-position: 0px -83px;
+}
+
+.groups-icon {
+  background-position: 0px -111px;
+}
+
+.photo-icon {
+  background-position: 0px -139px;
+}
+
+.music-icon {
+  background-position: 0px -167px;
+}
+
+.video-icon {
+  background-position: 0px -195px;
+}
+
+.games-icon {
+  background-position: 0px -223px;
+}
+
+.goods-icon {
+  background-position: 0px -949px;
+  margin-top: -2px;
+}
+
+.docs-icon {
+  background-position: 0px -280px;
+}
+
+.left-menu-border {
+  border-top: 1px solid #dfe2e8;
+  margin-top: 8px;
+  margin-left: 37px;
+  margin-bottom: 11px;
+}
+
+.left-menu-takoe {
+  color: #939699;
+  letter-spacing: 0.3px;
+  display: inline-block;
+  font-size: 13px;
+  margin-left: 9px;
+  margin-top: 21px;
+
+}
+
+.left-menu-takoe-href {
+  color: #939699;
+  letter-spacing: 0.3px;
+  font-size: 13px;
+  line-height: 19px;
+}
+
+.blog {
+
+}
+
+.razrab {
+  margin-left: 10px;
+}
+
+.reklama {
+
+}
+
+.esche {
+  margin-left: 11px;
+}
+
+
+li {
+  list-style-type: none;
+  color: #285473;
+  height: 28px;
+  transition: background-color 0.05s;
+}
+
+li:hover {
+  background-color: #edeef0;
+  border-radius: 2px;
+}
+
+
+
+.main-menu {
+  background-color: white;
+  display: inline-block;
+  position: relative;
+  width: 550px;
+  height: 709px;
+  top: -369px;
+  border: 1px;
+  outline: 1px solid #E2E3E7;
+  margin-left: 22px;
+}
+
+.main-menu-main {
+  height: 54px;
+  outline: 1px solid #E2E3E7;
+  background-color: #FAFBFC;
+}
+
+.main-menu-main-text {
+  position: relative;
+  margin-left: 19px;
+  top: 18px;
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
+}
+
+
+
+
+
+
+
+a {
+  text-decoration: none;
 }
