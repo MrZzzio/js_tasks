@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lesson10</title>
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="main">
+    <div class="input">
+        <label for="text">Text:</label>
+        <input type="text" id="text" name="text"/>
+        <label for="color">Color:</label>
+        <input type="text" id="color" name="color"/>
+        <label for="marker">Marker:</label>
+        <select id="marker" name="marker">
+            <option>disc</option>
+            <option>circle</option>
+            <option>square</option>
+        </select>
+    </div>
+    <div class="buttons">
+        <button name="create" onclick="create()">Create</button>
+        <button name="change" onclick="change()">Change current</button>
+        <button name="delete" onclick="deleteCur()">Delete current</button>
+    </div>
+    <ul id="list">
+        <li onclick="select(this)">first</li>
+        <li onclick="select(this)">second</li>
+        <li onclick="select(this)">third</li>
+    </ul>
+</div>
+<script src="Script.js"></script>
+</body>
+</html>
