@@ -5,7 +5,6 @@
     <title>Paint</title>
     <!-- data-main attribute tells require.js to load
              scripts/main.js after require.js loads. -->
-    <!--<script data-main="scripts/main" src="scripts/require.js"></script>-->
     <link href="styles.css" rel="stylesheet"/>
 </head>
 <body>
@@ -15,7 +14,6 @@
         <canvas width="1024px" height="512px" id='main-field'>Обновите браузер</canvas>
     </div>
 </div>
-<!--TODO remove it after require.js-->
-<script src="scripts/views/canvas.js"></script>
+<script data-main="scripts/main" src="scripts/require.js"></script>
 </body>
 </html>
