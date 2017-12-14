@@ -1,9 +1,10 @@
-define(["models/shape", "common/helper"], function (Shape, helper) {
+define(["models/shape", "common/helper", "common/menu"], function (Shape, helper, menu) {
     function Circle(x, y, radius) {
         Shape.call(this, x, y);
         this.radius = radius;
         this.sAngel = 0;
         this.eAngel = 2*Math.PI;
+        this.color = menu.getColor();
     }
     helper.inheritPrototype(Circle, Shape);
     Circle.prototype.getCoord = function () {
@@ -17,8 +18,8 @@ define(["models/shape", "common/helper"], function (Shape, helper) {
         var coords = this.getCoord();
         ctx.beginPath();
         ctx.arc(coords.startX, coords.startY, coords.radius, this.sAngel, this.eAngel);
-        ctx.strokeStyle = 'blue';
-        ctx.fillStyle = 'blue';
+        ctx.strokeStyle = this.color;
+        ctx.fillStyle = this.color;
         ctx.fill();
         ctx.stroke();
     };
