@@ -26,3 +26,10 @@
 #main-field {
     outline: 1px solid #0f0f0f;
 }
+
+.button {
+    display: block;
+    margin: 20px 0 20px 20px;
+    width: 75px;
+    height: 35px;
+}

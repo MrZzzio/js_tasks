@@ -9,11 +9,16 @@
 </head>
 <body>
 <div class="main">
-    <div class="menu">menu</div>
+    <div class="menu">
+        <button name="rect" class="button" onclick="setType('rect')">Rect</button>
+        <button name="circle" class="button" onclick="setType('circle')">Circle</button>
+        <button name="line" class="button" onclick="setType('line')">Line</button>
+    </div>
     <div class="canvas-main">
         <canvas width="1024px" height="512px" id='main-field'></canvas>
     </div>
 </div>
 <script data-main="scripts/main" src="scripts/require.js"></script>
+<script src="scripts/common/menu.js"></script>
 </body>
 </html>

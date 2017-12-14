@@ -1,4 +1,5 @@
-define(["models/rect", "models/circle", "models/line", "views/canvas", "common/menu"], function (rect, circle, line, canv, menu) {
+define(["models/rect", "models/circle", "models/line", "models/objects", "views/canvas", "common/menu"],
+    function (rect, circle, line, objects, canv, menu) {
 
     var canvas = canv.canvas;
     var ctx = canv.ctx;
@@ -9,10 +10,10 @@ define(["models/rect", "models/circle", "models/line", "views/canvas", "common/m
     }
 
     function clearCanvas(canvas, ctx) {
-        var objects = canv.getAllObjects();
+        var obj = objects.getAllObjects();
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (var i = 0; i < objects.length; i++) {
-            draw(objects[i]);
+        for (var i = 0; i < obj.length; i++) {
+            draw(obj[i]);
         }
     }
 
@@ -29,7 +30,7 @@ define(["models/rect", "models/circle", "models/line", "views/canvas", "common/m
         mouseDown = 0;
         endX = mousePos.x;
         endY = mousePos.y;
-        canv.addObject(obj);
+        objects.addObject(obj);
     }
 
     function getObject() {
