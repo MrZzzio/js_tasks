@@ -16,7 +16,7 @@ define(["models/shape", "common/helper"], function (Shape, helper) {
     Line.prototype.render = function(ctx) {
         var coords = this.getCoord();
         ctx.beginPath();
-        ctx.strokeStyle = "yellow";
+        ctx.strokeStyle = "red";
         ctx.fill();
         ctx.moveTo(coords.startX, coords.startY);
         ctx.lineTo(coords.endX, coords.endY);

@@ -1,79 +1,80 @@
-define(["models/rect"], function (rect) {
+define(["models/rect", "models/circle", "models/line", "views/canvas", "common/menu"], function (rect, circle, line, canv, menu) {
 
+    var canvas = canv.canvas;
+    var ctx = canv.ctx;
+    var startX, startY, endX, endY, mouseDown = 0;
 
-    var canvas, ctx;
-    var mouseX, mouseY, mouseDown = 0,
-        lastX, lastY;
-
-    function draw(ctx, x, y, size) {
-        if (lastX && lastY && (x !== lastX || y !== lastY)) {
-            ctx.fillStyle = "#000000";
-            ctx.lineWidth = 2 * size;
-            ctx.beginPath();
-            ctx.moveTo(lastX, lastY);
-            ctx.lineTo(x, y);
-            ctx.stroke();
-        }
-        ctx.fillStyle = "#000000";
-        ctx.beginPath();
-        ctx.arc(x, y, size, 0, Math.PI * 2, true);
-        ctx.closePath();
-        ctx.fill();
-        lastX = x;
-        lastY = y;
+    function draw(object) {
+        object.render(ctx);
     }
 
-    
-    // function clearCanvas(canvas, ctx) {
-    //     ctx.clearRect(0, 0, canvas.width, canvas.height)
-    // }
+    function clearCanvas(canvas, ctx) {
+        var objects = canv.getAllObjects();
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (var i = 0; i < objects.length; i++) {
+            draw(objects[i]);
+        }
+    }
 
-    function onMouseDown() { //нажать мышь
-        console.log(mouseX);
-        console.log(mouseY);
+    function onMouseDown() {
+        var mousePos = getMousePos(canvas, event);
         mouseDown = 1;
-        var r = new rect(mouseX, mouseY, lastX, lastY);
-        r.render(ctx);
+        startX = mousePos.x;
+        startY = mousePos.y;
     }
 
-    function onMouseUp() { //отпустить мышь
+    function onMouseUp() {
+        var mousePos = getMousePos(canvas, event);
+        var obj = getObject();
         mouseDown = 0;
-        lastX = 0;
-        lastY = 0;
-        console.log(mouseX);
-        console.log(mouseY);
+        endX = mousePos.x;
+        endY = mousePos.y;
+        canv.addObject(obj);
     }
 
-    function onMouseMove(e) { //движение мыши, если нажата кнопка, перересовать канвас
-        getMousePos(e)
-        if (mouseDown == 1) {
-            draw(ctx, mouseX, mouseY, 1)
+    function getObject() {
+        var obj;
+        switch (menu.getType()) {
+            case "rect":
+                obj = new rect(startX, startY, endX - startX, endY - startY);
+                break;
+            case "circle":
+                obj = new circle(startX, startY, getRadius());
+                break;
+            case "line":
+                obj = new line(startX, startY, endX, endY);
+                break;
+        }
+        return obj;
+    }
+
+    function getRadius() {
+        return Math.sqrt(Math.pow(Math.abs(startX - endX), 2) + Math.pow(Math.abs(startY - endY), 2));
+    }
+
+    function onMouseMove() {
+        var mousePos = getMousePos(canvas, event);
+        var object = getObject();
+        endX = mousePos.x;
+        endY = mousePos.y;
+        if (mouseDown === 1) {
+            clearCanvas(canvas, ctx);
+            draw(object);
         }
     }
 
-    function getMousePos(e) {
-        if (!e)
-            var e = event
-        if (e.offsetX) {
-            mouseX = e.offsetX
-            mouseY = e.offsetY
-            console.log("offcet...");
-
-        }
-        else if (e.layerX) {
-            mouseX = e.layerX
-            mouseY = e.layerY
-            console.log("layer...");
-
-        }
+    function getMousePos(canvas, evt) {
+        var rect = canvas.getBoundingClientRect();
+        return {
+            x: evt.clientX - rect.left,
+            y: evt.clientY- rect.top
+        };
     }
 
     function init() {
-        canvas = document.getElementById('main-field')
-        ctx = canvas.getContext('2d')
-        canvas.addEventListener('mousedown', onMouseDown, false)
-        canvas.addEventListener('mousemove', onMouseMove, false)
-        window.addEventListener('mouseup', onMouseUp, false)
+        canvas.addEventListener('mousedown', onMouseDown, false);
+        canvas.addEventListener('mousemove', onMouseMove, false);
+        canvas.addEventListener('mouseup', onMouseUp, false);
     }
 
     init();
