@@ -1,2 +1,2 @@
-require(["views/canvas", "controlls/mouse", "common/menu"], function (canvas, mouse, menu) {
+require(["views/canvas", "controlls/mouse", "controlls/keyboard", "common/menu"], function (canvas, mouse, keyboard, menu) {
 });

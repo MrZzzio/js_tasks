@@ -27,7 +27,6 @@ define(["models/rect", "models/circle", "models/line", "models/objects", "views/
         for (var i = 0; i < obj.length; i++) {
             if (obj[i].type === "rect" || obj[i].type === "circle" /*|| obj[i].type === "line"*/) {
                 obj[i].setSelect(mousePos.x, mousePos.y);
-                console.log(obj[i].isSelected());
                 if (obj[i].isSelected()) {
                     obj[i].render(ctx, "red");
                 } else {
