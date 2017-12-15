@@ -37,13 +37,13 @@ define(["models/rect", "models/circle", "models/line", "models/objects", "views/
         var obj;
         switch (menu.getType()) {
             case "rect":
-                obj = new rect(startX, startY, endX - startX, endY - startY);
+                obj = new rect(startX, startY, endX - startX, endY - startY, menu.getColor());
                 break;
             case "circle":
-                obj = new circle(startX, startY, getRadius());
+                obj = new circle(startX, startY, getRadius(), menu.getColor());
                 break;
             case "line":
-                obj = new line(startX, startY, endX, endY);
+                obj = new line(startX, startY, endX, endY, menu.getColor());
                 break;
         }
         return obj;

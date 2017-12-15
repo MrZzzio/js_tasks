@@ -1,17 +1,18 @@
-define(["models/shape", "common/helper", "common/menu"], function (Shape, helper, menu) {
-    function Circle(x, y, radius) {
+define(["models/shape", "common/helper"], function (Shape, helper) {
+    function Circle(x, y, radius, color) {
         Shape.call(this, x, y);
         this.radius = radius;
         this.sAngel = 0;
         this.eAngel = 2*Math.PI;
-        this.color = menu.getColor();
+        color ? this.color = color : this.color = "#000";
     }
     helper.inheritPrototype(Circle, Shape);
     Circle.prototype.getCoord = function () {
         return {
             startX: this.x,
             startY: this.y,
-            radius: this.radius
+            radius: this.radius,
+            color: this.color
         };
     };
     Circle.prototype.render = function(ctx) {

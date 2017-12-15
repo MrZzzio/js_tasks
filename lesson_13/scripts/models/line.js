@@ -1,9 +1,9 @@
-define(["models/shape", "common/helper", "common/menu"], function (Shape, helper, menu) {
-    function Line(startX, startY, endX, endY) {
+define(["models/shape", "common/helper"], function (Shape, helper) {
+    function Line(startX, startY, endX, endY, color) {
         Shape.call(this, startX, startY);
         this.endX = endX;
         this.endY = endY;
-        this.color = menu.getColor();
+        color ? this.color = color : this.color = "#000";
     }
     helper.inheritPrototype(Line, Shape);
     Line.prototype.getCoord = function () {
@@ -11,7 +11,8 @@ define(["models/shape", "common/helper", "common/menu"], function (Shape, helper
             startX: this.x,
             startY: this.y,
             endX: this.endX,
-            endY: this.endY
+            endY: this.endY,
+            color: this.color
         };
     };
     Line.prototype.render = function(ctx) {
