@@ -34,3 +34,18 @@
     height: 35px;
     background-color: #939699;
 }
+
+.to-json {
+    margin-top: 25px;
+    padding-left: 15%;
+}
+
+.input-json {
+    width: 1024px;
+    height: 150px;
+}
+
+.input {
+    width: 100%;
+    height: 100%;
+}
