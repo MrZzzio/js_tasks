@@ -22,6 +22,20 @@ define(["models/rect", "models/circle", "models/line", "models/objects", "views/
         mouseDown = 1;
         startX = mousePos.x;
         startY = mousePos.y;
+        clearCanvas(canvas, ctx);
+        var obj = objects.getAllObjects();
+        for (var i = 0; i < obj.length; i++) {
+            if (obj[i].type === "rect" || obj[i].type === "circle" /*|| obj[i].type === "line"*/) {
+                obj[i].setSelect(mousePos.x, mousePos.y);
+                console.log(obj[i].isSelected());
+                if (obj[i].isSelected()) {
+                    obj[i].render(ctx, "red");
+                } else {
+                    obj[i].render(ctx);
+                }
+            }
+        }
+
     }
 
     function onMouseUp() {
@@ -30,7 +44,9 @@ define(["models/rect", "models/circle", "models/line", "models/objects", "views/
         mouseDown = 0;
         endX = mousePos.x;
         endY = mousePos.y;
-        objects.addObject(obj);
+        if (!obj.isEmpty()) {
+            objects.addObject(obj);
+        }
     }
 
     function getObject() {

@@ -3,6 +3,7 @@ define(["models/shape", "common/helper"], function (Shape, helper) {
         Shape.call(this, startX, startY);
         this.endX = endX;
         this.endY = endY;
+        this.type = "line";
         color ? this.color = color : this.color = "#000";
     }
     helper.inheritPrototype(Line, Shape);
@@ -23,6 +24,18 @@ define(["models/shape", "common/helper"], function (Shape, helper) {
         ctx.moveTo(coords.startX, coords.startY);
         ctx.lineTo(coords.endX, coords.endY);
         ctx.stroke();
+    };
+    Line.prototype.setSelect = function (x, y) {
+        // var props = this.getCoord();
+        // if ((x >= props.startX && (x - props.startX) <= props.endX) && (y >= props.startY && (y - props.startY) <= props.endY)) {
+        //     this.select = true;
+        // } else {
+            this.select = false;
+        // }
+    };
+    Line.prototype.isEmpty = function () {
+        var props = this.getCoord();
+        return (props.startX === props.endX + 5) && (props.startY === props.endY + 5);
     };
     return Line;
 });

@@ -1,4 +1,4 @@
-define(function () {
+define(["models/objects", "views/canvas"], function (objects, canvas) {
     var type;
     var rect = document.getElementById("button-rect");
     var circle = document.getElementById("button-circle");
@@ -11,6 +11,16 @@ define(function () {
 
     function getColor() {
         return color.value;
+    }
+
+    function changeColor() {
+        var obj = objects.getAllObjects();
+        for (var i = 0; i < obj.length; i++) {
+            if (obj[i].isSelected()) {
+                obj[i].color = color.value;
+                obj[i].render(canvas.ctx);
+            }
+        }
     }
 
     function setType(t) {
@@ -42,6 +52,7 @@ define(function () {
         rect.addEventListener('click', setRect, false);
         circle.addEventListener('click', setCircle, false);
         line.addEventListener('click', setLine, false);
+        color.addEventListener('input', changeColor, false);
     }
 
     init();
