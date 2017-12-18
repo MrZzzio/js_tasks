@@ -1,4 +1,4 @@
-define(["models/rect", "models/circle", "models/line"], function (rect, circle, line) {
+define(function () {
     var canvas = document.getElementById("main-field");
     var ctx = canvas.getContext('2d');
 

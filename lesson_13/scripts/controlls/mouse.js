@@ -39,7 +39,7 @@ define(["models/rect", "models/circle", "models/line", "models/objects", "views/
 
     function onMouseUp() {
         var mousePos = getMousePos(canvas, event);
-        var obj = getObject();
+        var obj = objects.getObject(menu.getType(), startX, startY, endX, endY, menu.getColor());
         mouseDown = 0;
         endX = mousePos.x;
         endY = mousePos.y;
@@ -48,29 +48,9 @@ define(["models/rect", "models/circle", "models/line", "models/objects", "views/
         }
     }
 
-    function getObject() {
-        var obj;
-        switch (menu.getType()) {
-            case "rect":
-                obj = new rect(startX, startY, endX - startX, endY - startY, menu.getColor());
-                break;
-            case "circle":
-                obj = new circle(startX, startY, getRadius(), menu.getColor());
-                break;
-            case "line":
-                obj = new line(startX, startY, endX, endY, menu.getColor());
-                break;
-        }
-        return obj;
-    }
-
-    function getRadius() {
-        return Math.sqrt(Math.pow(Math.abs(startX - endX), 2) + Math.pow(Math.abs(startY - endY), 2));
-    }
-
     function onMouseMove() {
         var mousePos = getMousePos(canvas, event);
-        var object = getObject();
+        var object = objects.getObject(menu.getType(), startX, startY, endX, endY, menu.getColor());
         endX = mousePos.x;
         endY = mousePos.y;
         if (mouseDown === 1) {

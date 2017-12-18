@@ -1,7 +1,9 @@
 define(["models/shape", "common/helper"], function (Shape, helper) {
-    function Circle(x, y, radius, color) {
+    function Circle(x, y, /*radius,*/ endX, endY, color) {
         Shape.call(this, x, y);
-        this.radius = radius;
+        this.radius = this.getRadius(x, y, endX, endY);
+        this.endX = endX;
+        this.endY = endY;
         this.sAngel = 0;
         this.eAngel = 2*Math.PI;
         this.type = "circle";
@@ -28,6 +30,9 @@ define(["models/shape", "common/helper"], function (Shape, helper) {
         ctx.fillStyle = this.color;
         ctx.fill();
         ctx.stroke();
+    };
+    Circle.prototype.getRadius = function (startX, startY, endX, endY) {
+        return Math.sqrt(Math.pow(Math.abs(startX - endX), 2) + Math.pow(Math.abs(startY - endY), 2));
     };
     Circle.prototype.setSelect = function (x, y) {
         var props = this.getCoord();
