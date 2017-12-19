@@ -14,10 +14,9 @@ define(["models/rect", "models/circle", "models/line"], function (rect, circle, 
         switch (type) {
             case "rect":
                 obj = new rect(startX, startY, endX - startX, endY - startY, color);
-                // obj = new rect(startX, startY, endX, endY, color);
                 break;
             case "circle":
-                obj = new circle(startX, startY, /*getRadius(startX, startY, endX, endY),*/ endX, endY, color);
+                obj = new circle(startX, startY, endX, endY, color);
                 break;
             case "line":
                 obj = new line(startX, startY, endX, endY, color);
@@ -26,10 +25,18 @@ define(["models/rect", "models/circle", "models/line"], function (rect, circle, 
         return obj;
     }
 
+    function deleteObject(object) {
+        var index = objects.indexOf(object);
+        if (index > -1) {
+            objects.splice(index, 1);
+        }
+    }
+
     return {
         addObject: addObject,
         getAllObjects: getAllObjects,
-        getObject: getObject
+        getObject: getObject,
+        deleteObject: deleteObject
     }
 });
 

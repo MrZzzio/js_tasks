@@ -23,6 +23,7 @@ define(["models/objects", "views/canvas"], function (objects, canvas) {
             if (obj[i].isSelected()) {
                 obj[i].color = color.value;
                 obj[i].render(canvas.ctx);
+                break;
             }
         }
     }
@@ -53,8 +54,7 @@ define(["models/objects", "views/canvas"], function (objects, canvas) {
     }
 
     function save() {
-        var json = JSON.stringify(objects.getAllObjects());
-        inputField.value = json;
+        inputField.value = JSON.stringify(objects.getAllObjects());
     }
 
     function load() {
