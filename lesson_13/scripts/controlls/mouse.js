@@ -1,5 +1,5 @@
-define(["models/rect", "models/circle", "models/line", "models/objects", "views/canvas", "common/menu"],
-    function (rect, circle, line, objects, canv, menu) {
+define(["models/objects", "views/canvas", "common/menu"],
+    function (objects, canv, menu) {
 
     var canvas = canv.canvas;
     var ctx = canv.ctx;
@@ -45,15 +45,15 @@ define(["models/rect", "models/circle", "models/line", "models/objects", "views/
     function onMouseUp() {
         var mousePos = getMousePos(canvas, event);
         var obj = objects.getObject(menu.getType(), startX, startY, endX, endY, menu.getColor());
-        if (!selected) {
+        if (selected) {
+            mouseDown = 0;
+        } else {
             mouseDown = 0;
             endX = mousePos.x;
             endY = mousePos.y;
             if (!obj.isEmpty()) {
                 objects.addObject(obj);
             }
-        } else {
-            mouseDown = 0;
         }
 
     }
@@ -74,9 +74,11 @@ define(["models/rect", "models/circle", "models/line", "models/objects", "views/
             var deltaX = mousePos.x - pointX;
             var deltaY = mousePos.y - pointY;
             if (selected.type === "rect") {
-                object = objects.getObject(selected.type, selected.x + deltaX, selected.y + deltaY, selected.endX + selected.x + deltaX, selected.endY + selected.y + deltaY, selected.color);
+                object = objects.getObject(selected.type, selected.x + deltaX, selected.y + deltaY,
+                    selected.endX + selected.x + deltaX, selected.endY + selected.y + deltaY, selected.color);
             } else {
-                object = objects.getObject(selected.type, selected.x + deltaX, selected.y + deltaY, selected.endX + deltaX, selected.endY + deltaY, selected.color);
+                object = objects.getObject(selected.type, selected.x + deltaX, selected.y + deltaY,
+                    selected.endX + deltaX, selected.endY + deltaY, selected.color);
             }
             draw(object);
             objects.addObject(object);

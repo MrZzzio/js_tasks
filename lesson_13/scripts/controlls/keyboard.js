@@ -9,7 +9,7 @@ define(["models/objects", "views/canvas"], function (objects, canvas) {
                 if (obj[i].isSelected()) {
                     obj.splice(i, 1);
                 }
-                    obj[i].render(canvas.ctx);
+                obj[i].render(canvas.ctx);
             }
         }
     }
