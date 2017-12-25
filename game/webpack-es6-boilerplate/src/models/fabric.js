@@ -1,5 +1,6 @@
 import Field from './objects/field';
 import Cell from './objects/cell';
+import Block from './objects/block';
 import Mob from './persons/mob';
 import Player from './persons/player';
 
@@ -13,7 +14,13 @@ class Fabric {
     createObjects() {
         for (let i = 0; i < 11; i++) {
             for (let j = 0; j < 11; j++) {
-                Field.setCell(i, j, new Cell(i, j));
+                let object;
+                if (i % 2 !== 0 && j % 2 !== 0) {
+                    object = new Block(i, j);
+                } else {
+                    object = new Cell(i, j);
+                }
+                Field.setCell(i, j, object);
                 objects.push(Field.getCell(i, j));
             }
         }

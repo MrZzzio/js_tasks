@@ -1,10 +1,11 @@
 import Canvas from 'views/canvas';
 
-const cellSize = 64;
+// const cellSize = 64;
 
 class Cell {
 
     constructor(x, y) {
+        this._cellSize = 64;
         this._position = {
             x,
             y
@@ -20,10 +21,10 @@ class Cell {
         this._position = value;
     }
 
-    static getCanvasCoord(x, y) {
+    getCanvasCoord(x, y) {
         return {
-            x: (x * cellSize + cellSize / 2),
-            y: (y * cellSize + cellSize / 2)
+            x: (x * this._cellSize + this._cellSize / 2),
+            y: (y * this._cellSize + this._cellSize / 2)
         }
     }
 
@@ -35,7 +36,7 @@ class Cell {
         Canvas().ctx.beginPath();
         Canvas().ctx.strokeStyle = 'black';
         Canvas().ctx.lineWidth = 1;
-        Canvas().ctx.rect(this._position.x * cellSize, this._position.y * cellSize, cellSize, cellSize);
+        Canvas().ctx.rect(this._position.x * this._cellSize, this._position.y * this._cellSize, this._cellSize, this._cellSize);
         Canvas().ctx.stroke();
     }
 }

@@ -70,7 +70,7 @@ class Body {
     }
 
     render() {
-        const coord = Cell.getCanvasCoord(this.getPosition().x, this.getPosition().y);
+        const coord = field.getCell(this._position.x, this._position.y).getCanvasCoord(this.getPosition().x, this.getPosition().y);
         Canvas().ctx.beginPath();
         Canvas().ctx.arc(coord.x, coord.y, 20, 0, 2 * Math.PI);
         Canvas().ctx.fillStyle = this._color;
