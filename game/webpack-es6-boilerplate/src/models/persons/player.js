@@ -16,7 +16,7 @@ class Player extends Body {
     }
 
     bomb() {
-
+        console.log('BOOM!!!');
     }
 
     takeBonus() {

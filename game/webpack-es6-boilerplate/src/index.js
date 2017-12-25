@@ -15,12 +15,9 @@ import Fabric from './models/fabric';
 // document.getElementById('root').innerHTML = a();
 
 const fabric = Fabric();
+fabric.createObjects();
 
-Field.render();
-
-fabric.player.render();
-fabric.mob.render();
-
+Canvas().render(Fabric().getAllObjects());
 
 document.addEventListener('keydown', Keyboard, false);
 

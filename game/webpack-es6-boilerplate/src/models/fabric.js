@@ -3,19 +3,46 @@ import Cell from './objects/cell';
 import Mob from './persons/mob';
 import Player from './persons/player';
 
-export default function fabric() {
+const objects = [];
+const cells = [];
+let player;
+let mob;
 
-    for (let i = 0; i < 11; i++) {
-        for (let j = 0; j < 11; j++) {
-            Field.setCell(i, j, new Cell(i, j));
+class Fabric {
+
+    createObjects() {
+        for (let i = 0; i < 11; i++) {
+            for (let j = 0; j < 11; j++) {
+                Field.setCell(i, j, new Cell(i, j));
+                objects.push(Field.getCell(i, j));
+            }
         }
+
+        player = new Player(100, 0, 0);
+        mob = new Mob(100, 10, 10);
+
+        objects.push(player, mob);
+
     }
 
-    const player = new Player(100, 0, 0);
-    const mob = new Mob(100, 10, 10);
-
-    return {
-        player: player,
-        mob: mob
+    getAllObjects() {
+        return objects;
     }
+
+    getCells() {
+        return cells;
+    }
+
+
+    getPlayer() {
+        return player;
+    }
+
+    getMob() {
+        return mob;
+    }
+}
+
+export default function fabric() {
+    return new Fabric();
 }

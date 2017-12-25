@@ -16,7 +16,7 @@ export function a() {
     body.move('left');
     console.log(body);
 
-    Canvas();
+    // Canvas();
 
 }
 
