@@ -1,7 +1,5 @@
 import Canvas from 'views/canvas';
 
-// const cellSize = 64;
-
 class Cell {
 
     constructor(x, y) {
