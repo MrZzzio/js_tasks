@@ -7,6 +7,7 @@ class Barrier extends Cell {
         super(x ,y);
         this._free = false;
         this._bonus = null;
+        this._canDestroy = true;
     }
 
     setBonus(bonus) {

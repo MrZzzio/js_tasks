@@ -9,6 +9,7 @@ class Cell {
             y
         };
         this._free = true;
+        this._canDestroy = false;
     }
 
     getPosition() {
@@ -28,6 +29,10 @@ class Cell {
 
     canMove() {
         return this._free;
+    }
+
+    canDestroy() {
+        return this._canDestroy;
     }
 
     render() {

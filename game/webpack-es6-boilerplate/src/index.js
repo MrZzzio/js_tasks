@@ -17,7 +17,7 @@ import Fabric from './models/fabric';
 const fabric = Fabric();
 fabric.createObjects();
 
-console.log(Fabric().getAllObjects());
+// console.log(Fabric().getAllObjects());
 
 Canvas().render(Fabric().getAllObjects());
 

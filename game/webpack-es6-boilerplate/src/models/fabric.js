@@ -4,6 +4,8 @@ import Block from './objects/block';
 import Mob from './persons/mob';
 import Player from './persons/player';
 import Barrier from './objects/barrier';
+import Bomb from './objects/bomb';
+
 
 const fieldSize = 11;
 const objects = [];
@@ -35,6 +37,22 @@ class Fabric {
         objects.push(player, mob1, mob2, mob3);
     }
 
+    updateObjects(obj) {
+        objects.length = 0;
+        console.log(objects);
+        for (let i = 0; i < obj.length; i++) {
+            if (obj[i]) {
+                for (let j = 0; j < obj[i].length; j++) {
+                    if (obj[i][j]) {
+                        objects.push(obj[i][j]);
+                    }
+                }
+            }
+        }
+        objects.push(player, mob1, mob2, mob3);
+        console.log(objects);
+    }
+
     static insertBarriers(cells) {
         for (let i = 0; i < Math.round(cells.length * 0.3); i++) {
             let rnd = Math.floor(Math.random() * cells.length);
@@ -44,7 +62,7 @@ class Fabric {
             const x = cells[rnd].getPosition().x;
             const y = cells[rnd].getPosition().y;
             const barrier = new Barrier(x, y);
-            Field.setCell(x, y);
+            Field.setCell(x, y, barrier);
             objects.push(barrier);
         }
     }
@@ -54,6 +72,13 @@ class Fabric {
             (position.x === 0 && position.y === fieldSize - 1) ||
             (position.x === fieldSize - 1 && position.y === 0) ||
             (position.x === fieldSize - 1 && position.y === fieldSize - 1));
+    }
+
+    createBomb(x, y) {
+        let bomb = new Bomb(x, y);
+        Field.setCell(x, y, bomb);
+        objects.push(bomb);
+        //взорвать бомбу
     }
 
     getAllObjects() {

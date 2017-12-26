@@ -19,6 +19,10 @@ class Field {
         }
     }
 
+    getCells() {
+        return this._f;
+    }
+
     render() {
         for (let i = 0; i < this._x; i++) {
             for (let j = 0; j < this._y; j++) {
