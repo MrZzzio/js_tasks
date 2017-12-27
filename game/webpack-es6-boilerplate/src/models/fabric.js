@@ -5,7 +5,7 @@ import Mob from './persons/mob';
 import Player from './persons/player';
 import Barrier from './objects/barrier';
 import Bomb from './objects/bomb';
-
+import Canvas from 'views/canvas';
 
 const fieldSize = 11;
 const objects = [];
@@ -39,7 +39,6 @@ class Fabric {
 
     updateObjects(obj) {
         objects.length = 0;
-        console.log(objects);
         for (let i = 0; i < obj.length; i++) {
             if (obj[i]) {
                 for (let j = 0; j < obj[i].length; j++) {
@@ -78,7 +77,11 @@ class Fabric {
         let bomb = new Bomb(x, y);
         Field.setCell(x, y, bomb);
         objects.push(bomb);
-        //взорвать бомбу
+        this.explosionBomb(bomb);
+    }
+
+    explosionBomb(bomb) {
+        setTimeout(() => {bomb.explosion()}, 3000);
     }
 
     getAllObjects() {
