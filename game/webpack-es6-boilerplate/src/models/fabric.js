@@ -53,7 +53,6 @@ class Fabric {
             }
         }
         objects.push(player, mob1, mob2, mob3);
-        console.log(objects);
     }
 
     static insertBarriers(cells) {
@@ -83,7 +82,6 @@ class Fabric {
         objects.push(bomb);
         bomb.setFree(false);
         bomb.render();
-        console.log(bomb);
         this.explosionBomb(bomb);
     }
 

@@ -58,8 +58,6 @@ class Body {
             case 'up':
                 cell = field.getCell(this._position.x, this._position.y - 1);
                 if (cell && cell.canMove()) {
-                    console.log(cell);
-                    console.log(cell.canMove());
                     this._position.y -= 1;
                 }
                 break;
