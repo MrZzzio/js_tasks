@@ -28,14 +28,13 @@ class Bomb extends Cell {
 
     explosion() {
         console.log('BOOM!!!');
-        //TODO бомба взрывает даже блоки
         let cells = this.getCellsToDestroy();
         for (let i = 0; i < cells.length; i++) {
             const x = cells[i].getPosition().x;
             const y = cells[i].getPosition().y;
             field.setCell(x, y, new Cell(x, y));
-            Fabric().updateObjects(field.getCells());
         }
+        Fabric().updateObjects(field.getCells());
         Canvas().clear();
         Canvas().render(Fabric().getAllObjects());
     }
@@ -50,7 +49,7 @@ class Bomb extends Cell {
         }
         for (let i = this.getPosition().y - this.getRadius(); i <= this.getPosition().y + this.getRadius(); i++) {
             let cell2 = field.getCell(this.getPosition().x, i);
-            if (this.getPosition().y !== i || cell2 && cell2.canDestroy()) {
+            if (/*this.getPosition().y !== i ||*/ cell2 && cell2.canDestroy()) {
                 cells.push(cell2);
             }
         }
