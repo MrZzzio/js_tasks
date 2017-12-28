@@ -10,6 +10,7 @@ class Cell {
         };
         this._free = true;
         this._canDestroy = false;
+        this._object = null;
     }
 
     getPosition() {
@@ -31,8 +32,20 @@ class Cell {
         return this._free;
     }
 
+    setFree(free) {
+        this._free = free;
+    }
+
     canDestroy() {
         return this._canDestroy;
+    }
+
+    getObject() {
+        return this._object;
+    }
+
+    setObject(obj) {
+        this._object = obj;
     }
 
     render() {

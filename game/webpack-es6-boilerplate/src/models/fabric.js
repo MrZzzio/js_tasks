@@ -31,9 +31,13 @@ class Fabric {
         }
         Fabric.insertBarriers(cells);
         player = new Player(100, 0, 0);
+        Field.getCell(0, 0).setFree(false);
         mob1 = new Mob(100, 10, 10);
+        Field.getCell(10, 10).setFree(false);
         mob2 = new Mob(100, 0, 10);
+        Field.getCell(0, 10).setFree(false);
         mob3 = new Mob(100, 10, 0);
+        Field.getCell(10, 0).setFree(false);
         objects.push(player, mob1, mob2, mob3);
     }
 
@@ -77,6 +81,9 @@ class Fabric {
         let bomb = new Bomb(x, y);
         Field.setCell(x, y, bomb);
         objects.push(bomb);
+        bomb.setFree(false);
+        bomb.render();
+        console.log(bomb);
         this.explosionBomb(bomb);
     }
 

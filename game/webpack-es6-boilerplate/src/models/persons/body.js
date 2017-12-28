@@ -41,6 +41,7 @@ class Body {
 
     move(direction) {
         let cell;
+        let oldCell = field.getCell(this._position.x, this._position.y);
         switch (direction) {
             case 'left':
                 cell = field.getCell(this._position.x - 1, this._position.y);
@@ -57,6 +58,8 @@ class Body {
             case 'up':
                 cell = field.getCell(this._position.x, this._position.y - 1);
                 if (cell && cell.canMove()) {
+                    console.log(cell);
+                    console.log(cell.canMove());
                     this._position.y -= 1;
                 }
                 break;
@@ -67,6 +70,12 @@ class Body {
                 }
                 break;
         }
+        if (oldCell.constructor.name !== "Bomb") {
+            oldCell.setObject(null);
+            oldCell.setFree(true);
+        }
+        cell.setObject(this);
+        cell.setFree(false);
     }
 
     render() {
